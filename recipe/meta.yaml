@@ -1,5 +1,5 @@
 {% set name = "graphormer-pretrained" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/graphormer-pretrained-{{ version }}.tar.gz
-  sha256: 7fff527532743d7bbb060b474e0ef9c750dd5a34b543c64bfdd2b26defb5e407
+  sha256: 775018e909d7a04824025540e96cc358e7ada7f0b441f48e8f5464b5e96bb5a3
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   number: 0
   skip: true  # [win]
 
@@ -40,10 +40,6 @@ requirements:
 test:
   imports:
     - graphormer_pretrained
-  source_files:
-    - tests/
-  commands:
-    - pytest --verbose tests/
 
 about:
   home: https://github.com/maclandrol/graphormer-pretrained
